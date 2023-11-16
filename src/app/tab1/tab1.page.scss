@@ -1,0 +1,40 @@
+
+.video-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85vh;  
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: var(--ion-margin);
+    margin-top: var(--ion-margin);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .video-container {
+    width: 100%;
+    height: 90vh;  /* Cambié de 90vh a 100vh para ocupar toda la pantalla */
+    scroll-snap-align: start;
+    position: relative;  /* Agregué esta línea para que la descripción esté relativa a este contenedor */
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    touch-action: manipulation;
+  }
+    
+  .description {
+    position: absolute;
+    bottom: 85px;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: bottom 0.3s ease;  /* Agregué una transición para que sea más suave */
+  }
+  
+  
+    

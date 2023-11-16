@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>subir</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm" style="margin-top: 50px;">
+    <ion-item>
+      <ion-label position="floating">Descripción ({{ descriptionLength }}/50)</ion-label>
+      <ion-textarea name="description" [(ngModel)]="description" required (input)="onDescriptionInput($event)"></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">Video</ion-label>
+      <input type="file" accept="video/*" (change)="onFileSelected($event, form)" [disabled]="!isFileSelectionEnabled">
+      <!-- Campo oculto para el archivo seleccionado -->
+      <input type="hidden" name="videoFile" ngModel #videoFile="ngModel">
+    </ion-item>
+  
+    <ion-button type="submit" expand="full" color="primary" [disabled]="!form.valid || !isFileSelectionEnabled">Subir Video</ion-button>
+  </form>
+</ion-content>
